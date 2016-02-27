@@ -1,0 +1,32 @@
+
+#Created by Constraints Editor (xc6vlx240t-ff1759-2) - 2013/07/09
+NET "clk_in" LOC = E14;
+NET "clk_in" TNM_NET = clk_in;
+TIMESPEC TS_clk_in = PERIOD "clk_in" 100MHz HIGH 50%;
+
+
+NET "uart_rx_in" LOC = AW40;
+NET "uart_tx_out" LOC = AV40;
+#NET "uart_cts_in" LOC = AU41;
+#NET "uart_rts_out" LOC = AV41;
+##
+#NET "USR_DIP_SW1"                   LOC = "AA34";   ## 1   on SW6 DIP switch (active-high)
+#NET "USR_DIP_SW2"                   LOC = "W41";    ## 2   on SW6 DIP switch (active-high)
+#NET "USR_DIP_SW3"                   LOC = "V41";    ## 3   on SW6 DIP switch (active-high)
+#NET "USR_DIP_SW4"                   LOC = "Y32";    ## 4   on SW6 DIP switch (active-high)
+#NET "USR_DIP_SW5"                   LOC = "AA32";   ## 5   on SW6 DIP switch (active-high)
+#NET "USR_DIP_SW6"                   LOC = "W40";    ## 6   on SW6 DIP switch (active-high)
+#NET "USR_DIP_SW7"                   LOC = "V40";    ## 7   on SW6 DIP switch (active-high)
+#NET "USR_DIP_SW8"                   LOC = "AA39";   ## 8   on SW6 DIP switch (active-high)
+##
+NET "USR_LED_1"                     LOC = "N13";   ## 2   on LED DS24
+NET "USR_LED_2"                     LOC = "M13";   ## 2   on LED DS25  
+NET "USR_LED_3"                     LOC = "N14";   ## 2   on LED DS26 
+NET "rst_in_n"                        LOC = "U34";   ## push button UserPB1
+#NET "USR_LED_4"                     LOC = "M14";   ## 2   on LED DS27 
+#NET "USR_LED_5"                     LOC = "B16";   ## 2   on LED DS20 
+#NET "USR_LED_6"                     LOC = "A16";   ## 2   on LED DS21
+#NET "USR_LED_7"                     LOC = "E12";   ## 2   on LED DS22
+#NET "USR_LED_8"                     LOC = "F12";   ## 2   on LED DS23
+#Created by Constraints Editor (xc6vlx240t-ff1759-2) - 2013/08/06
+

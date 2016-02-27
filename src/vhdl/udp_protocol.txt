@@ -1,0 +1,48 @@
+UDP Packet
+Byte 0-1 Type
+2-3 ID
+4-5 data length 
+
+Size at least 6 Byte
+
+Types:
+1  -> ACK  (Data Part contains ID, length=2)
+2  -> NACK (Data Part contains ID, length=2)
+3  -> HW_config[r]
+        response:
+            HW-Version (4 Bytes -> hg revision)
+            MAX_DATA_LENGTH (2 Bytes)
+            length of max_img_width (1 Byte)
+            max_img_width 
+            img_width 
+            length of max_img_height  (1 Byte)
+            max_img_height
+            img_height
+            length of box size (1 Byte)
+            box size
+            length of stimuli (log2(stimuli length)) (1 Byte)
+            stimuli length
+            length of instances (1 Byte)
+            instances 
+						comparator_error_type length (1 Byte)
+						rev_error_type length (1 Byte)
+						dut_error_type length (1 Byte)
+4  -> status[r]
+        response:
+            state (1 Byte: IDLE=0, RESTART=1, RUN=2, CHECK_LAST=3, CHECK_DONE=4)
+            current_stimuli
+5  -> start stimuli[rw] (SS) (data length = stimuli_length)
+6  -> end stimuli[rw] (ES) (data length = stimuli_length)
+7  -> restart[w] (reset every thing and start @SS and run to ES)
+8  -> error count[r]
+9  -> errors stored[r]
+10 -> errors droped[r] (amount of dropped errors)
+11 -> get_next_error[r]
+        response:
+            (error_typ -> 1Byte values = 0..3
+                error 0 => no error
+                error 1 => DUT less BOXes as expected
+                error 2 => DUT more BOXes as expected
+                error 3 => DUT unexpected BOXes
+            (stimuli byte aligned)
+12 -> error read[w] (means fifo can remove the last transmitted error)
