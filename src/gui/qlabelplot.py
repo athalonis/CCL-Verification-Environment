@@ -31,12 +31,19 @@ from PyQt4.QtGui import *
 try:
     import matplotlib
     from matplotlib.backends.backend_qt4agg import FigureCanvasQTAgg as FigureCanvas
-    from matplotlib.backends.backend_qt4agg import NavigationToolbar2QTAgg as NavigationToolbar
     from matplotlib.figure import Figure
     import matplotlib.cm as cm
     matplotlib_v=matplotlib.__version__
 except:
     matplotlib_v=None
+
+#workaround for new versions of matplotlib -> class was renamed
+if matplotlib_v is not None:
+    try:
+        from matplotlib.backends.backend_qt4agg import NavigationToolbar2QTAgg as NavigationToolbar
+    except:
+        from matplotlib.backends.backend_qt4agg import NavigationToolbar2QT as NavigationToolbar
+
 import numpy as np
 
 
